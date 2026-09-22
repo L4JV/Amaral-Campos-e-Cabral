@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventário Extrajudicial: Quando é Possível Evitar o Processo na Justiça | Amaral, Campos e Cabral</title>
+<meta name="description" content="Entenda os requisitos para fazer o inventário extrajudicial em cartório e economizar tempo e desgaste para a família.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Amaral, Campos e Cabral Advocacia"></a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">O escritório</a>
+      <div class="nav-item">
+        <a href="areas-de-atuacao.html">Áreas de atuação <svg class="chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5 6 6.5 11 1.5"/></svg></a>
+      <div class="dropdown">
+        <a href="areas-de-atuacao.html#familias">Direito das Famílias</a>
+        <a href="areas-de-atuacao.html#sucessoes">Direito das Sucessões</a>
+        <a href="areas-de-atuacao.html#patrimonial">Planejamento Patrimonial</a>
+        <a href="areas-de-atuacao.html#civil">Direito Civil</a>
+        <a href="areas-de-atuacao.html#saude">Direito da Saúde</a>
+      </div>
+      </div>
+      <a href="curso.html">Curso</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contato.html" class="btn-nav">Fale conosco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="post-hero">
+    <div class="container" style="max-width:720px;">
+      <div id="post-content">
+        <p class="form-note">Carregando artigo…</p>
+      </div>
+    </div>
+  </section>
+
+  <article class="post-body">
+    <div class="container" style="max-width:720px; padding:0 32px;">
+      <div id="post-body-slot"></div>
+    </div>
+  </article>
+
+  <section class="section-alt" id="post-cta" hidden>
+    <div class="container" style="text-align:center;">
+      <p class="eyebrow" style="justify-content:center;">Precisa de orientação sobre o seu caso?</p>
+      <h2 style="margin-top:16px;">Fale com quem cuida disso todos os dias</h2>
+      <a href="contato.html" class="btn btn-primary" style="margin-top:28px;">Agendar uma conversa</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Amaral, Campos e Cabral">
+        <p>Advocacia familiar dedicada a proteger o que a sua família construiu, hoje e nas próximas gerações.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <a href="sobre.html">O escritório</a>
+        <a href="areas-de-atuacao.html">Áreas de atuação</a>
+        <a href="curso.html">Curso</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Áreas</h4>
+        <a href="areas-de-atuacao.html#familias">Direito das Famílias</a>
+        <a href="areas-de-atuacao.html#sucessoes">Sucessões</a>
+        <a href="areas-de-atuacao.html#patrimonial">Planejamento Patrimonial</a>
+        <a href="areas-de-atuacao.html#saude">Direito da Saúde</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="contato.html">Fale conosco</a>
+        <a href="https://wa.me/5524992940090" target="_blank" rel="noopener">(24) 99294-0090</a>
+        <a href="mailto:amaralcamposcabral@gmail.com">amaralcamposcabral@gmail.com</a>
+        <a href="https://www.instagram.com/amaralcamposecabral" target="_blank" rel="noopener">@amaralcamposecabral</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Amaral, Campos e Cabral Advocacia</span>
+      <span>Site institucional — não constitui aconselhamento jurídico</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  var contentSlot = document.getElementById('post-content');
+  var bodySlot     = document.getElementById('post-body-slot');
+  var ctaSlot      = document.getElementById('post-cta');
+
+  function notFound(msg) {
+    contentSlot.innerHTML =
+      '<h1 style="font-size:clamp(26px,4vw,38px);">' + msg + '</h1>' +
+      '<p style="margin-top:16px; color:var(--ink-soft);"><a href="blog.html" style="color:var(--bordo); font-weight:600;">← Voltar para o blog</a></p>';
+  }
+
+  var slug = new URLSearchParams(window.location.search).get('post');
+  if (!slug) { notFound('Nenhum artigo indicado.'); return; }
+
+  if (!window.supabaseClient) {
+    notFound('O blog ainda não foi conectado ao banco de dados.');
+    return;
+  }
+
+  var { data: post, error } = await window.supabaseClient
+    .from('posts')
+    .select('*')
+    .eq('slug', slug)
+    .eq('is_published', true)
+    .maybeSingle();
+
+  if (error || !post) { notFound('Não encontramos esse artigo.'); return; }
+
+  document.title = post.title + ' | Amaral, Campos e Cabral';
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', post.excerpt);
+
+  contentSlot.innerHTML =
+    '<p class="eyebrow">' + post.category + ' · ' + post.read_minutes + ' min de leitura</p>' +
+    '<h1 style="font-size:clamp(30px,4vw,44px); margin-top:18px; line-height:1.18;">' + post.title + '</h1>' +
+    '<p style="margin-top:20px; color:var(--ink-soft); font-size:17px;">Publicado por ' + post.author + '</p>';
+
+  // O corpo do artigo é escrito pelo próprio escritório no painel de
+  // administração (admin.html); não é conteúdo enviado por visitantes.
+  bodySlot.innerHTML = post.body_html;
+  ctaSlot.hidden = false;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel do blog | Amaral, Campos e Cabral</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{ background: var(--papel-alt); }
+  .admin-bar{
+    background: var(--ink); color:#F3ECDE; padding:14px 0;
+  }
+  .admin-bar .container{ display:flex; align-items:center; justify-content:space-between; }
+  .admin-bar .brand-mini{ font-family:var(--serif-display); font-size:17px; color:#F3ECDE; }
+  .admin-bar .brand-mini span{ color:var(--bronze-claro); }
+  .admin-wrap{ max-width:720px; margin:0 auto; padding: 56px 32px 100px; }
+  .admin-wrap.wide{ max-width:920px; }
+
+  .login-card{
+    background:var(--marmore); border:1px solid var(--linha); border-radius:var(--radius);
+    padding:40px; max-width:420px; margin: 80px auto; text-align:center;
+  }
+  .login-card h1{ font-size:24px; margin-bottom:8px; }
+  .login-card p{ color:var(--ink-soft); font-size:14.5px; margin-bottom:28px; }
+  .login-card .field{ text-align:left; }
+
+  .admin-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; gap:16px; flex-wrap:wrap; }
+  .admin-head h1{ font-size:26px; }
+
+  .msg{ font-family:var(--sans-util); font-size:14px; padding:12px 16px; border-radius:var(--radius); margin-bottom:20px; display:none; }
+  .msg.show{ display:block; }
+  .msg.ok{ background:#E7EFE2; color:#345126; }
+  .msg.err{ background:#F6E3DF; color:#7A1626; }
+
+  .post-item{
+    background:var(--marmore); border:1px solid var(--linha); border-radius:var(--radius);
+    padding:18px 20px; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .post-item .info{ min-width:0; }
+  .post-item h3{ font-size:16.5px; margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .post-item .tags{ font-family:var(--sans-util); font-size:11.5px; letter-spacing:.04em; color:var(--ink-soft); display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .badge{ font-family:var(--sans-util); font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:3px 9px; border-radius:20px; }
+  .badge.pub{ background:#E7EFE2; color:#345126; }
+  .badge.draft{ background:#EFE7D6; color:#6E4A34; }
+  .badge.feat{ background:var(--bordo); color:#fff; }
+  .post-item .actions{ display:flex; gap:8px; flex-shrink:0; }
+  .btn-sm{
+    font-family:var(--sans-util); font-size:12.5px; font-weight:600; padding:9px 14px;
+    border-radius:var(--radius); border:1px solid var(--linha); background:transparent; cursor:pointer; color:var(--ink);
+  }
+  .btn-sm:hover{ border-color:var(--bordo); color:var(--bordo); }
+  .btn-sm.danger:hover{ border-color:#7A1626; background:#7A1626; color:#fff; }
+
+  .editor-card{ background:var(--marmore); border:1px solid var(--linha); border-radius:var(--radius); padding:32px; }
+  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .row3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+  @media (max-width:640px){ .row2, .row3{ grid-template-columns:1fr; } }
+
+  .checks{ display:flex; gap:24px; margin-bottom:22px; flex-wrap:wrap; }
+  .check-field{ display:flex; align-items:center; gap:8px; font-family:var(--sans-util); font-size:14px; }
+  .check-field input{ width:16px; height:16px; }
+
+  .rte-toolbar{ display:flex; gap:4px; flex-wrap:wrap; margin-bottom:8px; }
+  .rte-toolbar button{
+    font-family:var(--sans-util); font-size:13px; font-weight:600; padding:7px 11px;
+    border:1px solid var(--linha); background:var(--papel); border-radius:6px; cursor:pointer; color:var(--ink);
+  }
+  .rte-toolbar button:hover{ background:var(--bronze-claro); color:var(--ink); }
+  .rte-body{
+    width:100%; min-height:280px; padding:16px 18px; font-family:var(--serif-body); font-size:16px; line-height:1.7;
+    border:1px solid var(--linha); background:var(--marmore); border-radius:var(--radius); color:var(--ink);
+  }
+  .rte-body:focus{ outline:none; border-color:var(--bordo); }
+  .rte-body h2{ font-size:20px; margin:18px 0 8px; }
+  .rte-body ul, .rte-body ol{ padding-left:22px; list-style:disc; margin:0 0 14px; }
+  .rte-body li{ margin-bottom:6px; }
+  .rte-body a{ color:var(--bordo); text-decoration:underline; }
+  .rte-body blockquote{ border-left:3px solid var(--bronze-claro); padding-left:14px; color:var(--ink-soft); font-style:italic; margin:14px 0; }
+  .rte-hint{ font-family:var(--sans-util); font-size:12px; color:var(--ink-soft); margin-top:6px; }
+
+  .editor-actions{ display:flex; gap:12px; margin-top:28px; flex-wrap:wrap; }
+  .back-link{ font-family:var(--sans-util); font-size:13px; color:var(--bronze); text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:20px; }
+  .back-link:hover{ color:var(--bordo); }
+  .empty-state{ text-align:center; padding:60px 20px; color:var(--ink-soft); font-family:var(--sans-util); font-size:14.5px; }
+  [hidden]{ display:none !important; }
+</style>
+</head>
+<body>
+
+<div class="admin-bar">
+  <div class="container">
+    <span class="brand-mini">Amaral, Campos e Cabral <span>· painel do blog</span></span>
+    <button class="btn-sm" id="btn-logout" hidden>Sair</button>
+  </div>
+</div>
+
+<!-- ===================== LOGIN ===================== -->
+<section id="view-login" class="admin-wrap">
+  <div class="login-card">
+    <h1>Entrar</h1>
+    <p>Use o e-mail e senha cadastrados para o escritório.</p>
+    <div class="msg err" id="login-error"></div>
+    <form id="form-login">
+      <div class="field">
+        <label for="login-email">E-mail</label>
+        <input type="email" id="login-email" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="login-senha">Senha</label>
+        <input type="password" id="login-senha" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Entrar</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== LISTA ===================== -->
+<section id="view-list" class="admin-wrap wide" hidden>
+  <div class="admin-head">
+    <h1>Posts do blog</h1>
+    <button class="btn btn-primary" id="btn-novo">+ Novo post</button>
+  </div>
+  <div class="msg ok" id="list-msg"></div>
+  <div id="post-list"></div>
+</section>
+
+<!-- ===================== EDITOR ===================== -->
+<section id="view-editor" class="admin-wrap wide" hidden>
+  <a href="#" class="back-link" id="btn-voltar">← Voltar para a lista</a>
+  <div class="msg err" id="editor-error"></div>
+  <div class="editor-card">
+    <input type="hidden" id="post-id">
+    <div class="row2">
+      <div class="field">
+        <label for="post-title">Título</label>
+        <input type="text" id="post-title" required>
+      </div>
+      <div class="field">
+        <label for="post-slug">Endereço na URL (slug)</label>
+        <input type="text" id="post-slug" required pattern="[a-z0-9\-]+">
+      </div>
+    </div>
+
+    <div class="row3">
+      <div class="field">
+        <label for="post-category">Categoria</label>
+        <select id="post-category">
+          <option>Famílias</option>
+          <option>Sucessões</option>
+          <option>Patrimonial</option>
+          <option>Civil</option>
+          <option>Saúde</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="post-minutes">Tempo de leitura (min)</label>
+        <input type="number" id="post-minutes" min="1" max="60" value="5">
+      </div>
+      <div class="field">
+        <label for="post-author">Autor(a)</label>
+        <input type="text" id="post-author" value="Amaral, Campos e Cabral Advocacia">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="post-excerpt">Resumo curto (aparece nos cards do blog)</label>
+      <textarea id="post-excerpt" style="min-height:70px" required></textarea>
+    </div>
+
+    <div class="field">
+      <label>Corpo do artigo</label>
+      <div class="rte-toolbar">
+        <button type="button" data-cmd="bold" title="Negrito"><b>N</b></button>
+        <button type="button" data-cmd="italic" title="Itálico"><i>I</i></button>
+        <button type="button" data-cmd="formatBlock" data-val="h2" title="Subtítulo">H2</button>
+        <button type="button" data-cmd="formatBlock" data-val="p" title="Parágrafo">¶</button>
+        <button type="button" data-cmd="formatBlock" data-val="blockquote" title="Citação">" "</button>
+        <button type="button" data-cmd="insertUnorderedList" title="Lista">• Lista</button>
+        <button type="button" data-cmd="createLink" title="Link">🔗 Link</button>
+        <button type="button" data-cmd="unlink" title="Remover link">Remover link</button>
+      </div>
+      <div id="post-body" class="rte-body" contenteditable="true"></div>
+      <p class="rte-hint">Selecione um trecho do texto e clique nos botões acima para formatar — como no Word.</p>
+    </div>
+
+    <div class="checks" style="margin-top:26px;">
+      <label class="check-field"><input type="checkbox" id="post-published"> Publicado (visível no site)</label>
+      <label class="check-field"><input type="checkbox" id="post-featured"> Post em destaque (aparece no topo do blog)</label>
+    </div>
+
+    <div class="editor-actions">
+      <button class="btn btn-primary" id="btn-salvar">Salvar</button>
+      <button class="btn-sm danger" id="btn-apagar" style="padding:13px 22px;">Apagar post</button>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  if (!window.supabaseClient) {
+    document.getElementById('login-error').textContent =
+      'O painel ainda não foi conectado ao banco de dados. Configure js/supabase-client.js primeiro.';
+    document.getElementById('login-error').classList.add('show');
+    return;
+  }
+  var sb = window.supabaseClient;
+
+  var viewLogin  = document.getElementById('view-login');
+  var viewList   = document.getElementById('view-list');
+  var viewEditor = document.getElementById('view-editor');
+  var btnLogout  = document.getElementById('btn-logout');
+
+  function showOnly(view) {
+    [viewLogin, viewList, viewEditor].forEach(function (v) { v.hidden = (v !== view); });
+  }
+
+  function slugify(str) {
+    return str.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  }
+
+  // ---------------- LOGIN ----------------
+  document.getElementById('form-login').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var email = document.getElementById('login-email').value.trim();
+    var senha = document.getElementById('login-senha').value;
+    var errBox = document.getElementById('login-error');
+    errBox.classList.remove('show');
+
+    var { error } = await sb.auth.signInWithPassword({ email: email, password: senha });
+    if (error) {
+      errBox.textContent = 'Não foi possível entrar: e-mail ou senha incorretos.';
+      errBox.classList.add('show');
+      return;
+    }
+    btnLogout.hidden = false;
+    showOnly(viewList);
+    loadPosts();
+  });
+
+  btnLogout.addEventListener('click', async function () {
+    await sb.auth.signOut();
+    btnLogout.hidden = true;
+    showOnly(viewLogin);
+  });
+
+  // ---------------- LISTA ----------------
+  async function loadPosts() {
+    var listEl = document.getElementById('post-list');
+    listEl.innerHTML = '<p class="empty-state">Carregando posts…</p>';
+    var { data, error } = await sb.from('posts').select('*').order('created_at', { ascending: false });
+    if (error) {
+      listEl.innerHTML = '<p class="empty-state">Erro ao carregar posts: ' + error.message + '</p>';
+      return;
+    }
+    if (!data.length) {
+      listEl.innerHTML = '<p class="empty-state">Nenhum post ainda. Clique em "Novo post" para criar o primeiro.</p>';
+      return;
+    }
+    listEl.innerHTML = '';
+    data.forEach(function (post) {
+      var item = document.createElement('div');
+      item.className = 'post-item';
+      item.innerHTML =
+        '<div class="info">' +
+          '<h3>' + post.title + '</h3>' +
+          '<div class="tags">' +
+            '<span class="badge ' + (post.is_published ? 'pub' : 'draft') + '">' + (post.is_published ? 'Publicado' : 'Rascunho') + '</span>' +
+            (post.is_featured ? '<span class="badge feat">Destaque</span>' : '') +
+            '<span>' + post.category + ' · ' + post.read_minutes + ' min</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="actions">' +
+          '<button class="btn-sm" data-edit="' + post.id + '">Editar</button>' +
+        '</div>';
+      item.querySelector('[data-edit]').addEventListener('click', function () { openEditor(post); });
+      listEl.appendChild(item);
+    });
+  }
+
+  document.getElementById('btn-novo').addEventListener('click', function () {
+    openEditor(null);
+  });
+  document.getElementById('btn-voltar').addEventListener('click', function (e) {
+    e.preventDefault();
+    showOnly(viewList);
+    loadPosts();
+  });
+
+  // ---------------- EDITOR ----------------
+  var slugTouched = false;
+  document.getElementById('post-slug').addEventListener('input', function () { slugTouched = true; });
+  document.getElementById('post-title').addEventListener('input', function () {
+    if (!slugTouched) document.getElementById('post-slug').value = slugify(this.value);
+  });
+
+  document.querySelectorAll('.rte-toolbar button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cmd = btn.getAttribute('data-cmd');
+      var val = btn.getAttribute('data-val') || undefined;
+      document.getElementById('post-body').focus();
+      if (cmd === 'createLink') {
+        var url = prompt('Cole o endereço do link (https://...)');
+        if (!url) return;
+        document.execCommand(cmd, false, url);
+      } else {
+        document.execCommand(cmd, false, val);
+      }
+    });
+  });
+
+  function openEditor(post) {
+    slugTouched = !!post;
+    document.getElementById('editor-error').classList.remove('show');
+    document.getElementById('post-id').value = post ? post.id : '';
+    document.getElementById('post-title').value = post ? post.title : '';
+    document.getElementById('post-slug').value = post ? post.slug : '';
+    document.getElementById('post-category').value = post ? post.category : 'Famílias';
+    document.getElementById('post-minutes').value = post ? post.read_minutes : 5;
+    document.getElementById('post-author').value = post ? post.author : 'Amaral, Campos e Cabral Advocacia';
+    document.getElementById('post-excerpt').value = post ? post.excerpt : '';
+    document.getElementById('post-body').innerHTML = post ? post.body_html : '<p></p>';
+    document.getElementById('post-published').checked = post ? post.is_published : false;
+    document.getElementById('post-featured').checked = post ? post.is_featured : false;
+    document.getElementById('btn-apagar').style.display = post ? 'inline-block' : 'none';
+    showOnly(viewEditor);
+  }
+
+  document.getElementById('btn-salvar').addEventListener('click', async function () {
+    var errBox = document.getElementById('editor-error');
+    errBox.classList.remove('show');
+
+    var id = document.getElementById('post-id').value;
+    var payload = {
+      title: document.getElementById('post-title').value.trim(),
+      slug: document.getElementById('post-slug').value.trim(),
+      category: document.getElementById('post-category').value,
+      read_minutes: parseInt(document.getElementById('post-minutes').value, 10) || 5,
+      author: document.getElementById('post-author').value.trim(),
+      excerpt: document.getElementById('post-excerpt').value.trim(),
+      body_html: document.getElementById('post-body').innerHTML,
+      is_published: document.getElementById('post-published').checked,
+      is_featured: document.getElementById('post-featured').checked
+    };
+    if (!payload.title || !payload.slug || !payload.excerpt) {
+      errBox.textContent = 'Preencha ao menos título, endereço (slug) e resumo.';
+      errBox.classList.add('show');
+      return;
+    }
+
+    // Só um post em destaque por vez: desmarca os outros antes de salvar este.
+    if (payload.is_featured) {
+      await sb.from('posts').update({ is_featured: false }).neq('id', id || '00000000-0000-0000-0000-000000000000');
+    }
+
+    var result;
+    if (id) {
+      result = await sb.from('posts').update(payload).eq('id', id);
+    } else {
+      result = await sb.from('posts').insert(payload);
+    }
+
+    if (result.error) {
+      errBox.textContent = result.error.message.indexOf('duplicate') > -1
+        ? 'Já existe um post com esse endereço (slug). Escolha outro.'
+        : 'Erro ao salvar: ' + result.error.message;
+      errBox.classList.add('show');
+      return;
+    }
+    showOnly(viewList);
+    loadPosts();
+  });
+
+  document.getElementById('btn-apagar').addEventListener('click', async function () {
+    var id = document.getElementById('post-id').value;
+    if (!id) return;
+    if (!confirm('Tem certeza que quer apagar este post? Essa ação não pode ser desfeita.')) return;
+    var { error } = await sb.from('posts').delete().eq('id', id);
+    if (error) { alert('Erro ao apagar: ' + error.message); return; }
+    showOnly(viewList);
+    loadPosts();
+  });
+
+  // ---------------- SESSÃO ATUAL ----------------
+  sb.auth.getSession().then(function (res) {
+    if (res.data.session) {
+      btnLogout.hidden = false;
+      showOnly(viewList);
+      loadPosts();
+    } else {
+      showOnly(viewLogin);
+    }
+  });
+});
+</script>
+</body>
+</html>

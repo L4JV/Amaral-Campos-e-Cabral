@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fale Conosco | Amaral, Campos e Cabral Advocacia</title>
+<meta name="description" content="Entre em contato com o escritório Amaral, Campos e Cabral Advocacia para agendar uma conversa sobre o seu caso.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Amaral, Campos e Cabral Advocacia"></a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">O escritório</a>
+      <div class="nav-item">
+        <a href="areas-de-atuacao.html">Áreas de atuação <svg class="chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5 6 6.5 11 1.5"/></svg></a>
+      <div class="dropdown">
+        <a href="areas-de-atuacao.html#familias">Direito das Famílias</a>
+        <a href="areas-de-atuacao.html#sucessoes">Direito das Sucessões</a>
+        <a href="areas-de-atuacao.html#patrimonial">Planejamento Patrimonial</a>
+        <a href="areas-de-atuacao.html#civil">Direito Civil</a>
+        <a href="areas-de-atuacao.html#saude">Direito da Saúde</a>
+      </div>
+      </div>
+      <a href="curso.html">Curso</a>
+      <a href="blog.html">Blog</a>
+      <a href="contato.html" class="btn-nav active" style="color:#fff;">Fale conosco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" style="border-bottom:1px solid var(--linha); padding-bottom:0;">
+    <div class="container" style="grid-template-columns:1fr; padding-bottom:56px;">
+      <p class="eyebrow">Fale conosco</p>
+      <h1 style="max-width:20ch;">Conte o que está acontecendo. <em>Nós ouvimos com cuidado.</em></h1>
+      <p class="lede">Preencha o formulário abaixo ou fale diretamente pelos canais ao lado — respondemos com discrição e dentro de 1 dia útil.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container form-grid">
+
+      <div>
+        <form id="form-contato" novalidate>
+          <div class="field">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone">
+          </div>
+          <div class="field">
+            <label for="area">Área de interesse</label>
+            <select id="area" name="area">
+              <option>Direito das Famílias</option>
+              <option>Direito das Sucessões</option>
+              <option>Planejamento Patrimonial</option>
+              <option>Direito Civil</option>
+              <option>Direito da Saúde</option>
+              <option>Ainda não sei</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mensagem">Conte brevemente o que está acontecendo</label>
+            <textarea id="mensagem" name="mensagem"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar mensagem</button>
+          <p class="form-note">Este formulário é uma demonstração visual. Para receber as mensagens de verdade, conecte-o ao seu e-mail ou a uma ferramenta como Google Forms, Typeform ou um webhook do seu site.</p>
+        </form>
+
+        <div id="form-feedback" hidden tabindex="-1" style="padding:40px 0;">
+          <h3>Mensagem recebida.</h3>
+          <p style="color:var(--ink-soft); margin-top:12px;">Obrigado por entrar em contato. Nossa equipe vai analisar o que você escreveu e retornar dentro de 1 dia útil.</p>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <div class="item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92Z"/></svg>
+          <div>
+            <h4>Telefone / WhatsApp</h4>
+            <p><a href="https://wa.me/5524992940090" target="_blank" rel="noopener">(24) 99294-0090</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+          <div>
+            <h4>E-mail</h4>
+            <p><a href="mailto:amaralcamposcabral@gmail.com">amaralcamposcabral@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <h4>Endereço</h4>
+            <p><a href="https://www.google.com/maps/search/?api=1&query=Rua+Edson+Passos,+60,+sala+202,+Aterrado,+Volta+Redonda,+RJ" target="_blank" rel="noopener">Rua Edson Passos, 60, sala 202<br>Aterrado — Volta Redonda/RJ</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <div>
+            <h4>Horário de atendimento</h4>
+            <p>Segunda a sexta, 9h às 18h</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><path d="M17.5 6.5h.01"/></svg>
+          <div>
+            <h4>Instagram</h4>
+            <p><a href="https://www.instagram.com/amaralcamposecabral" target="_blank" rel="noopener">@amaralcamposecabral</a></p>
+          </div>
+        </div>
+
+        <div class="mini-team">
+          <a href="https://www.instagram.com/amaralcamposecabral" target="_blank" rel="noopener" class="mini-team-item">
+            <img src="assets/team-daniele.jpg" alt="Daniele Amaral">
+            <span>Daniele Amaral</span>
+          </a>
+          <a href="https://www.instagram.com/amaralcamposecabral" target="_blank" rel="noopener" class="mini-team-item">
+            <img src="assets/team-bernard.jpg" alt="Bernard Cabral">
+            <span>Bernard Cabral</span>
+          </a>
+          <a href="https://www.instagram.com/amaralcamposecabral" target="_blank" rel="noopener" class="mini-team-item">
+            <img src="assets/team-juliana.jpg" alt="Juliana Campos">
+            <span>Juliana Campos</span>
+          </a>
+        </div>
+
+        <div class="frame" style="margin-top:14px;">
+          <img src="assets/logo.png" alt="Amaral, Campos e Cabral Advocacia">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Amaral, Campos e Cabral">
+        <p>Advocacia familiar dedicada a proteger o que a sua família construiu, hoje e nas próximas gerações.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <a href="sobre.html">O escritório</a>
+        <a href="areas-de-atuacao.html">Áreas de atuação</a>
+        <a href="curso.html">Curso</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Áreas</h4>
+        <a href="areas-de-atuacao.html#familias">Direito das Famílias</a>
+        <a href="areas-de-atuacao.html#sucessoes">Sucessões</a>
+        <a href="areas-de-atuacao.html#patrimonial">Planejamento Patrimonial</a>
+        <a href="areas-de-atuacao.html#saude">Direito da Saúde</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="contato.html">Fale conosco</a>
+        <a href="https://wa.me/5524992940090" target="_blank" rel="noopener">(24) 99294-0090</a>
+        <a href="mailto:amaralcamposcabral@gmail.com">amaralcamposcabral@gmail.com</a>
+        <a href="https://www.instagram.com/amaralcamposecabral" target="_blank" rel="noopener">@amaralcamposecabral</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Amaral, Campos e Cabral Advocacia</span>
+      <span>Site institucional — não constitui aconselhamento jurídico</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

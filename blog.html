@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Amaral, Campos e Cabral Advocacia</title>
+<meta name="description" content="Artigos sobre direito de família, sucessões e planejamento patrimonial, explicados sem juridiquês.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .filters{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:48px; }
+  .filters button{
+    font-family:var(--sans-util); font-size:12.5px; font-weight:600; letter-spacing:.03em;
+    padding:9px 18px; border:1px solid var(--linha); background:var(--marmore); color:var(--ink-soft);
+    border-radius:20px; cursor:pointer;
+  }
+  .filters button.is-active{ background:var(--bordo); border-color:var(--bordo); color:#fff; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Amaral, Campos e Cabral Advocacia"></a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">O escritório</a>
+      <div class="nav-item">
+        <a href="areas-de-atuacao.html">Áreas de atuação <svg class="chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1.5 6 6.5 11 1.5"/></svg></a>
+      <div class="dropdown">
+        <a href="areas-de-atuacao.html#familias">Direito das Famílias</a>
+        <a href="areas-de-atuacao.html#sucessoes">Direito das Sucessões</a>
+        <a href="areas-de-atuacao.html#patrimonial">Planejamento Patrimonial</a>
+        <a href="areas-de-atuacao.html#civil">Direito Civil</a>
+        <a href="areas-de-atuacao.html#saude">Direito da Saúde</a>
+      </div>
+      </div>
+      <a href="curso.html">Curso</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contato.html" class="btn-nav">Fale conosco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" style="border-bottom:1px solid var(--linha); padding-bottom:56px;">
+    <div class="container" style="grid-template-columns:1fr;">
+      <p class="eyebrow">Blog</p>
+      <h1 style="max-width:20ch;">Direito de família, <em>explicado sem juridiquês</em></h1>
+      <p class="lede">Textos práticos para entender seus direitos antes, durante e depois de qualquer processo — escritos para quem não é da área.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:64px;">
+    <div class="container">
+
+      <div class="blog-layout">
+
+        <div>
+          <div id="post-featured-slot"></div>
+
+          <div class="filters" role="tablist" aria-label="Filtrar por categoria">
+            <button class="is-active" data-filter="todos">Todos</button>
+            <button data-filter="Famílias">Famílias</button>
+            <button data-filter="Sucessões">Sucessões</button>
+            <button data-filter="Patrimonial">Patrimonial</button>
+            <button data-filter="Saúde">Saúde</button>
+          </div>
+
+          <div class="post-list" id="post-list-slot">
+            <p class="form-note">Carregando posts…</p>
+          </div>
+
+        </div>
+
+        <aside class="blog-sidebar">
+
+          <div class="sidebar-widget">
+            <h4 class="widget-title">Buscar</h4>
+            <form class="sidebar-search" onsubmit="return false;">
+              <input type="text" id="sidebar-search-input" placeholder="Buscar no blog...">
+              <button type="submit" aria-label="Buscar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <div class="sidebar-widget">
+            <h4 class="widget-title">Posts recentes</h4>
+            <div class="sidebar-list" id="sidebar-recent-slot">
+              <a href="#">Carregando…</a>
+            </div>
+          </div>
+
+          <div class="sidebar-widget">
+            <h4 class="widget-title">Áreas de atuação</h4>
+            <div class="sidebar-areas">
+              <a href="areas-de-atuacao.html#familias">Direito das Famílias</a>
+              <a href="areas-de-atuacao.html#sucessoes">Direito das Sucessões</a>
+              <a href="areas-de-atuacao.html#patrimonial">Planejamento Patrimonial</a>
+              <a href="areas-de-atuacao.html#civil">Direito Civil</a>
+              <a href="areas-de-atuacao.html#saude">Direito da Saúde</a>
+            </div>
+          </div>
+
+          <div class="sidebar-cta">
+            <h4>Precisa de orientação?</h4>
+            <p>Fale com o escritório e conte o que está acontecendo.</p>
+            <a href="https://wa.me/5524992940090" target="_blank" rel="noopener" class="btn btn-gold" style="width:100%; justify-content:center;">Falar no WhatsApp</a>
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Amaral, Campos e Cabral">
+        <p>Advocacia familiar dedicada a proteger o que a sua família construiu, hoje e nas próximas gerações.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <a href="sobre.html">O escritório</a>
+        <a href="areas-de-atuacao.html">Áreas de atuação</a>
+        <a href="curso.html">Curso</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Áreas</h4>
+        <a href="areas-de-atuacao.html#familias">Direito das Famílias</a>
+        <a href="areas-de-atuacao.html#sucessoes">Sucessões</a>
+        <a href="areas-de-atuacao.html#patrimonial">Planejamento Patrimonial</a>
+        <a href="areas-de-atuacao.html#saude">Direito da Saúde</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="contato.html">Fale conosco</a>
+        <a href="https://wa.me/5524992940090" target="_blank" rel="noopener">(24) 99294-0090</a>
+        <a href="mailto:amaralcamposcabral@gmail.com">amaralcamposcabral@gmail.com</a>
+        <a href="https://www.instagram.com/amaralcamposecabral" target="_blank" rel="noopener">@amaralcamposecabral</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Amaral, Campos e Cabral Advocacia</span>
+      <span>Site institucional — não constitui aconselhamento jurídico</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async function () {
+  var featuredSlot = document.getElementById('post-featured-slot');
+  var listSlot     = document.getElementById('post-list-slot');
+  var sidebarSlot  = document.getElementById('sidebar-recent-slot');
+  var searchInput  = document.getElementById('sidebar-search-input');
+  var filterBtns   = document.querySelectorAll('.filters [data-filter]');
+
+  if (!window.supabaseClient) {
+    listSlot.innerHTML = '<p class="form-note">O blog ainda não foi conectado ao banco de dados. Configure js/supabase-client.js.</p>';
+    return;
+  }
+
+  function flutesHTML(seed) {
+    var sets = [
+      '<span style="left:15%"></span><span style="left:40%"></span><span style="left:65%"></span><span style="left:88%"></span>',
+      '<span style="left:30%"></span><span style="left:60%"></span>',
+      '<span style="left:15%"></span><span style="left:50%"></span><span style="left:80%"></span>',
+      '<span style="left:25%"></span><span style="left:55%"></span>',
+      '<span style="left:10%"></span><span style="left:40%"></span><span style="left:75%"></span>'
+    ];
+    return sets[seed % sets.length];
+  }
+
+  function escapeHTML(str) {
+    var d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  var allPosts = [];
+  var currentFilter = 'todos';
+
+  var { data, error } = await window.supabaseClient
+    .from('posts')
+    .select('*')
+    .eq('is_published', true)
+    .order('published_at', { ascending: false });
+
+  if (error) {
+    listSlot.innerHTML = '<p class="form-note">Não foi possível carregar os posts agora. Tente novamente mais tarde.</p>';
+    return;
+  }
+  allPosts = data || [];
+
+  if (!allPosts.length) {
+    featuredSlot.innerHTML = '';
+    listSlot.innerHTML = '<p class="form-note">Nenhum post publicado ainda. Assim que o escritório publicar o primeiro artigo pelo painel, ele aparece aqui.</p>';
+    sidebarSlot.innerHTML = '<a href="#" style="pointer-events:none; color:var(--ink-soft);">Sem posts ainda</a>';
+    return;
+  }
+
+  var featured = allPosts.find(function (p) { return p.is_featured; }) || allPosts[0];
+
+  function render() {
+    // ---- destaque ----
+    featuredSlot.innerHTML =
+      '<a class="post-featured" href="blog-artigo.html?post=' + encodeURIComponent(featured.slug) + '">' +
+        '<div class="thumb"><div class="flutes">' + flutesHTML(0) + '</div></div>' +
+        '<div class="body">' +
+          '<span class="tag">' + escapeHTML(featured.category) + '</span>' +
+          '<h2>' + escapeHTML(featured.title) + '</h2>' +
+          '<p class="excerpt">' + escapeHTML(featured.excerpt) + '</p>' +
+          '<div class="meta-row"><span>' + escapeHTML(featured.author) + '</span><span>·</span><span>' + featured.read_minutes + ' min de leitura</span></div>' +
+          '<span class="read-link">Leia o artigo completo →</span>' +
+        '</div>' +
+      '</a>';
+
+    // ---- lista ----
+    var rest = allPosts.filter(function (p) { return p.id !== featured.id; });
+    if (currentFilter !== 'todos') {
+      rest = rest.filter(function (p) { return p.category === currentFilter; });
+    }
+    var q = (searchInput.value || '').trim().toLowerCase();
+    if (q) {
+      rest = rest.filter(function (p) { return p.title.toLowerCase().indexOf(q) > -1; });
+    }
+
+    if (!rest.length) {
+      listSlot.innerHTML = '<p class="form-note">Nenhum post encontrado com esse filtro.</p>';
+    } else {
+      listSlot.innerHTML = rest.map(function (p, i) {
+        return '<a class="post-row" href="blog-artigo.html?post=' + encodeURIComponent(p.slug) + '">' +
+          '<div class="thumb"><div class="flutes">' + flutesHTML(i + 1) + '</div></div>' +
+          '<div>' +
+            '<span class="tag">' + escapeHTML(p.category) + '</span>' +
+            '<h3>' + escapeHTML(p.title) + '</h3>' +
+            '<p class="excerpt">' + escapeHTML(p.excerpt) + '</p>' +
+            '<span class="meta">' + p.read_minutes + ' min de leitura</span>' +
+          '</div>' +
+        '</a>';
+      }).join('');
+    }
+
+    // ---- sidebar: recentes ----
+    var recent = allPosts.filter(function (p) { return p.id !== featured.id; }).slice(0, 4);
+    if (!recent.length) recent = [featured];
+    sidebarSlot.innerHTML = recent.map(function (p) {
+      return '<a href="blog-artigo.html?post=' + encodeURIComponent(p.slug) + '">' + escapeHTML(p.title) + '</a>';
+    }).join('');
+  }
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      currentFilter = btn.getAttribute('data-filter');
+      render();
+    });
+  });
+  searchInput.addEventListener('input', render);
+
+  render();
+});
+</script>
+</body>
+</html>
