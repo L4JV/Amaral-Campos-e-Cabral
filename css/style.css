@@ -307,6 +307,7 @@ nav.links a.active::after{
      e o texto fica logo abaixo, sobre o fundo escuro. */
   .hero-full{
     min-height: 0;
+    padding: 0;               /* anula o padding genérico de "section" */
     justify-content:flex-start;
     background:#241A17;
   }
@@ -326,11 +327,12 @@ nav.links a.active::after{
     background:
       linear-gradient(to bottom,
         rgba(36,26,23,0) 0%,
-        rgba(36,26,23,0) 72%,
-        rgba(36,26,23,.75) 92%,
+        rgba(36,26,23,0) 58%,
+        rgba(36,26,23,.55) 80%,
+        rgba(36,26,23,.92) 94%,
         #241A17 100%);
   }
-  .hero-full-content{ margin-top:-28px; }
+  .hero-full-content{ margin-top:-24px; }
   .hero-full-content{ padding: 20px 22px 20px; }
   .hero-full-content h1{ font-size: clamp(24px,6.4vw,32px); max-width:16ch; margin:12px auto 12px; }
   .hero-full-content .lede{ font-size:14.5px; max-width:34ch; margin-bottom:18px; }
