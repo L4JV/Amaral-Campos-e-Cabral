@@ -825,3 +825,63 @@ a:focus-visible, button:focus-visible, summary:focus-visible{
   html{ scroll-behavior:auto; }
   *{ transition:none !important; }
 }
+
+
+/* ---------- tarja vinho: botões ---------- */
+.course-banner .banner-hook{ margin-top:14px; color:#fff; }
+.course-banner .banner-hook strong{ color: var(--bronze-claro); }
+.banner-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+@media (max-width:760px){
+  .banner-actions{ flex-direction:column; align-items:stretch; width:100%; }
+  .banner-actions .btn{ justify-content:center; text-align:center; }
+}
+
+/* ---------- ebook ---------- */
+.ebook-hero{ background: var(--papel); }
+.ebook-grid{ display:grid; grid-template-columns: .8fr 1.2fr; gap:70px; align-items:center; }
+.ebook-cover{
+  background: linear-gradient(160deg, var(--bordo), var(--bordo-escuro));
+  color:#F7F1E4; text-align:center;
+  padding:44px 30px; max-width:340px; margin:0 auto; aspect-ratio: 3/4;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+  box-shadow: 0 30px 60px -20px rgba(36,26,23,.5);
+  border:1px solid var(--bronze-claro); outline:1px solid rgba(169,131,92,.5); outline-offset:-12px;
+}
+.ebook-cover img{ height:54px; width:auto; filter: brightness(0) invert(1); opacity:.9; }
+.ebook-cover-tag{ font-family:var(--sans-util); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--bronze-claro); font-weight:600; }
+.ebook-cover strong{ font-family:var(--serif-display); font-size:24px; line-height:1.25; font-weight:600; }
+.ebook-cover small{ font-family:var(--sans-util); font-size:11px; letter-spacing:.12em; text-transform:uppercase; opacity:.7; }
+.ebook-hero h1{ font-size: clamp(30px,3.6vw,46px); line-height:1.12; margin:18px 0 20px; }
+.ebook-hero .lede{ font-size:17.5px; color:var(--ink-soft); max-width:52ch; margin-bottom:22px; }
+.ebook-list{ display:flex; flex-direction:column; gap:10px; margin-bottom:30px; }
+.ebook-list li{ position:relative; padding-left:26px; color:var(--ink-soft); font-size:15.5px; }
+.ebook-list li::before{ content:"✓"; position:absolute; left:0; color:var(--bordo); font-weight:700; }
+@media (max-width:900px){
+  .ebook-grid{ grid-template-columns:1fr; gap:40px; }
+  .ebook-cover{ max-width:260px; }
+}
+
+/* ---------- vagas esgotadas ---------- */
+.soldout{ background: var(--papel); }
+.soldout-box{ max-width:720px; text-align:center; display:flex; flex-direction:column; align-items:center; }
+.soldout-box h1{ font-size: clamp(30px,4vw,46px); line-height:1.15; margin-bottom:20px; }
+.soldout-box .course-badge{ background: rgba(122,22,38,.08); border-color: var(--bordo); color: var(--bordo); }
+.soldout-box .lede{ color:var(--ink-soft); font-size:17.5px; margin-bottom:16px; }
+.soldout-box .actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
+.soldout-back{ margin-top:30px; font-family:var(--sans-util); font-size:13.5px; color:var(--bronze); }
+.soldout-back:hover{ color:var(--bordo); }
+@media (max-width:600px){
+  .soldout-box .actions{ flex-direction:column; align-items:stretch; width:100%; }
+  .soldout-box .actions .btn{ justify-content:center; }
+}
+
+/* capa real do ebook */
+.ebook-cover-img{ max-width:340px; margin:0 auto; box-shadow: 0 30px 60px -20px rgba(36,26,23,.5); border:1px solid var(--bronze-claro); }
+.ebook-cover-img img{ width:100%; height:auto; display:block; }
+.ebook-sub{ font-family:var(--sans-util); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--bronze); font-weight:600; margin-bottom:12px; }
+@media (max-width:900px){ .ebook-cover-img{ max-width:250px; } }
+
+.ebook-cover-wrap{ max-width:340px; margin:0 auto; box-shadow: 0 30px 60px -20px rgba(36,26,23,.5); border:1px solid var(--bronze-claro); }
+.ebook-cover-img{ width:100%; height:auto; display:block; }
+.ebook-sub{ font-family:var(--sans-util); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--bronze); font-weight:600; margin-bottom:12px; }
+@media (max-width:900px){ .ebook-cover-wrap{ max-width:260px; } }
