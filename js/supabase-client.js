@@ -11,8 +11,8 @@
 // esconder essa chave. Veja o arquivo supabase/schema.sql.
 // =========================================================
 
-const SUPABASE_URL = "COLOQUE_AQUI_A_URL_DO_SEU_PROJETO";
-const SUPABASE_ANON_KEY = "COLOQUE_AQUI_A_CHAVE_ANON_PUBLICA";
+const SUPABASE_URL = "https://dndtctfsqbaqdobnmndy.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRuZHRjdGZzcWJhcWRvYm5tbmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAwMDg1NTcsImV4cCI6MjEwNTU4NDU1N30.xkn2lzRT1PFVr8FuJKSS-ZTyjiDytU5qNPuzhDK0Y2k";
 
 const supabaseClient = (SUPABASE_URL.startsWith("http"))
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
