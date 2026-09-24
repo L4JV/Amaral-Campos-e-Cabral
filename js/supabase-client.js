@@ -23,3 +23,4 @@ if (!supabaseClient) {
     "Supabase ainda não configurado: edite js/supabase-client.js com a URL e a chave do seu projeto."
   );
 }
+window.supabaseClient = supabaseClient;
